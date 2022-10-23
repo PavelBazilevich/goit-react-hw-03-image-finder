@@ -64,6 +64,7 @@ class App extends Component {
   };
 
   render() {
+    console.log('this.state.images.length', this.state.images.length);
     return (
       <div className={css.App}>
         <Searchbar onSubmit={this.hendleFormSubmit} />
@@ -74,7 +75,7 @@ class App extends Component {
         )}
         {this.state.error && <h1>{this.state.error}</h1>}
 
-        {this.state.images.length !== 0 && this.state.isLoading === false && (
+        {!(this.state.images.length < 12) && (
           <Button onClick={this.hendelLoadMor} />
         )}
       </div>
